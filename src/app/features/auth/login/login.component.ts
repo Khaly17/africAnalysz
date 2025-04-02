@@ -47,28 +47,28 @@ export class LoginComponent {
 
   onLogin() {
     this.router.navigate(['/']);
-    // if (this.loginForm.invalid) {
-    //     this.errorMessage = "Veuillez remplir tous les champs correctement.";
-    //     return;
-    // }
+    if (this.loginForm.invalid) {
+        this.errorMessage = "Veuillez remplir tous les champs correctement.";
+        return;
+    }
 
-    // const { username, password } = this.loginForm.value;    
-    // this.isLoading = true;
-    // this.authService.login(username, password).subscribe({
-    //     next: (response) => {
-    //         if (response.token) {
-    //             localStorage.setItem('token', response.token);
-    //         }
+    const { username, password } = this.loginForm.value;    
+    this.isLoading = true;
+    this.authService.login(username, password).subscribe({
+        next: (response) => {
+            if (response.token) {
+                localStorage.setItem('token', response.token);
+            }
             
-    //         this.router.navigate(['/home']);
-    //         this.isLoading = false; 
-    //     },
-    //     error: (error) => {
-    //         console.error('Login error:', error);
-    //         this.errorMessage = "Nom d'utilisateur ou mot de passe incorrect.";
-    //         this.isLoading = false; 
-    //     }
-    // });
+            this.router.navigate(['/home']);
+            this.isLoading = false; 
+        },
+        error: (error) => {
+            console.error('Login error:', error);
+            this.errorMessage = "Nom d'utilisateur ou mot de passe incorrect.";
+            this.isLoading = false; 
+        }
+    });
 }
 
 }
