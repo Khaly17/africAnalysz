@@ -1,34 +1,35 @@
 <body class="bg-[#111418] flex items-center justify-center min-h-screen font-sans">
-    <div class="bg-[#1C1F24] w-full max-w-md p-8 rounded-xl shadow-lg">
-      <div class="text-center mb-6">
-        <h1 class="text-2xl font-bold text-white">Bienvenue sur <span class="text-blue-500">AfricAnalysz</span></h1>
-        <p class="text-gray-400 text-sm">Connectez-vous pour accéder à la plateforme</p>
-      </div>
-
-      <form class="flex flex-col gap-4">
-        <div>
-          <label for="email" class="block text-sm font-medium text-gray-300 mb-1">Email</label>
-          <input type="email" id="email" name="email" required class="w-full bg-[#293038] text-white p-3 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" />
-        </div>
-
-        <div>
-          <label for="password" class="block text-sm font-medium text-gray-300 mb-1">Mot de passe</label>
-          <input type="password" id="password" name="password" required class="w-full bg-[#293038] text-white p-3 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" />
-        </div>
-
-        <div class="flex items-center justify-between text-sm text-gray-400">
-          <label class="flex items-center gap-2">
-            <input type="checkbox" class="accent-blue-500" />
-            <span>Se souvenir de moi</span>
-          </label>
-          <a href="#" class="text-blue-500 hover:underline">Mot de passe oublié ?</a>
-        </div>
-
-        <button type="submit" class="mt-4 bg-blue-600 hover:bg-blue-700 w-full py-3 rounded-md text-white font-semibold text-sm">Se connecter</button>
-      </form>
-
-      <div class="mt-6 text-center text-sm text-gray-400">
-        Pas encore de compte ? <a href="#" class="text-blue-500 hover:underline">Créer un compte</a>
-      </div>
+  <div class="bg-[#1C1F24] w-full max-w-md p-8 rounded-xl shadow-2xl ring-1 ring-[#2f3741]">
+    <div class="text-center mb-8">
+      <img src="/assets/images/africa-logo.png" alt="Logo AfricAnalysz" class="mx-auto mb-4 h-14 w-14 object-contain">
+      <h1 class="text-3xl font-bold text-white tracking-tight">Bienvenue sur <span class="text-blue-500">AfricAnalysz</span></h1>
+      <p class="text-gray-400 text-sm mt-1">Analysez la sécurité de vos systèmes embarqués en toute confiance</p>
     </div>
-  </body>
+
+    <form class="flex flex-col gap-5">
+      <div>
+        <label for="email" class="block text-sm font-medium text-gray-300 mb-1">Adresse email</label>
+        <input type="email" id="email" name="email" required class="w-full bg-[#293038] text-white p-3 rounded-md border border-[#3a3f47] focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="ex: user@email.com" />
+      </div>
+
+      <div>
+        <label for="password" class="block text-sm font-medium text-gray-300 mb-1">Mot de passe</label>
+        <input type="password" id="password" name="password" required class="w-full bg-[#293038] text-white p-3 rounded-md border border-[#3a3f47] focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Votre mot de passe" />
+      </div>
+
+      <div class="flex items-center justify-between text-sm text-gray-400">
+        <label class="flex items-center gap-2">
+          <input type="checkbox" class="accent-blue-500" />
+          <span>Se souvenir de moi</span>
+        </label>
+        <a href="#" class="text-blue-500 hover:underline">Mot de passe oublié ?</a>
+      </div>
+
+      <button (click)=" onLogin()" class="mt-2 bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600 w-full py-3 rounded-md text-white font-semibold text-base shadow-md transition-all duration-300">Se connecter</button>
+    </form>
+
+    <div class="mt-6 text-center text-sm text-gray-400">
+      Pas encore de compte ? <a href="#" class="text-blue-500 hover:underline">Créer un compte</a>
+    </div>
+  </div>
+</body>
