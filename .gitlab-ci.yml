@@ -1,0 +1,74 @@
+image: docker:latest
+
+services:
+  - docker:dind
+
+variables:
+  ## -Ensure that the Docker client talks to the Docker daemon running in the service container
+  DOCKER_TLS_CERTDIR: ""
+  IMAGE_NAME: $REGISTRY_NAME_GAI
+  IMAGE_TAG: $CI_COMMIT_REF_SLUG
+  CONTAINER_NAME: $CONTAINER_NAME_GAI
+  REMOTE_USER: root
+  REMOTE_HOST: $DEPLOY_SERVER_IP
+  REMOTE_PORT: 22
+  SSH_KEY: $SSH_PRIVATE_KEY
+
+stages:
+  - build
+  - push
+  - deploy
+
+before_script:
+  -  docker login registry.gitlab.com -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD
+  # Login to the GitLab Container Registry
+#  - echo $CI_REGISTRY_PASSWORD | docker login registry.gitlab.com -u $CI_REGISTRY_USER -p echo $CI_REGISTRY_PASSWORD
+
+build:
+  stage: build
+  script:
+    # Build the Docker image
+    - docker login registry.gitlab.com -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD
+    - docker build -t $IMAGE_NAME:$IMAGE_TAG .
+  only:
+    - main  # or your desired branch
+
+push:
+  stage: push
+  script:
+    # Push the Docker image to the GitLab Container Registry
+    - docker build -t $IMAGE_NAME:$IMAGE_TAG .
+    - docker push $IMAGE_NAME:$IMAGE_TAG
+  only:
+    - main  # or your desired branch
+
+deploy:
+  stage: deploy
+  variables:
+
+    # DATABASE
+    DB_HOST: $DEV_HOST
+    DB_NAME: $DB_DEV_NAME
+    DB_PASSWORD: $DB_DEV_PASSWORD
+    DB_USER: $DB_DEV_USER
+  script:
+    # Add the SSH key to the SSH agent and connect to the remote server
+    - mkdir -p ~/.ssh
+    - echo "$SSH_KEY" | tr -d '\r' > ~/.ssh/id_rsa
+    - chmod 600 ~/.ssh/id_rsa
+    - eval $(ssh-agent -s)
+    - ssh-add ~/.ssh/id_rsa
+    - ssh-keyscan $REMOTE_HOST >> ~/.ssh/known_hosts
+    # Stop the existing container and remove it
+    - ssh -o StrictHostKeyChecking=no $REMOTE_USER@$REMOTE_HOST "docker stop $CONTAINER_NAME || true && docker rm $CONTAINER_NAME || true"
+    # Pull the new image from the GitLab Container Registry
+    - ssh -o StrictHostKeyChecking=no $REMOTE_USER@$REMOTE_HOST " docker login registry.gitlab.com -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD
+      && docker pull $IMAGE_NAME:$IMAGE_TAG"
+    # Run the new container
+    ##    - ssh -o StrictHostKeyChecking=no $REMOTE_USER@$REMOTE_HOST "docker run -d --name $CONTAINER_NAME -p 8081:8081 $IMAGE_NAME:$IMAGE_TAG"
+    - ssh -o StrictHostKeyChecking=no $REMOTE_USER@$REMOTE_HOST "docker run -d -e DB_USER=$DB_USER -e DB_PASSWORD=$DB_PASSWORD -e DB_NAME=$DB_NAME -e DB_HOST=$DB_HOST  --name $CONTAINER_NAME -p 4204:4200 $IMAGE_NAME:$IMAGE_TAG"
+
+  only:
+    - main  # or your desired branch
+
+

@@ -1,0 +1,60 @@
+
+<body class="bg-[#111418] text-white font-sans min-h-screen">
+    <div class="flex flex-col min-h-screen">
+      <!-- Header -->
+     <app-topbar></app-topbar>
+
+      <!-- Main -->
+      <main class="flex flex-col p-6 gap-6">
+        <!-- Contre-mesure Selection -->
+        <div class="bg-[#1C1F24] p-4 rounded-xl">
+          <h3 class="text-lg font-semibold mb-4 text-white">Sélection de Contre-Mesure</h3>
+          <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
+            <select class="w-full bg-[#293038] p-2 rounded-md text-white">
+              <option>Masquage (Masking)</option>
+              <option>Bruit ajouté (Noise Injection)</option>
+              <option>Décalage temporel (Random Delay)</option>
+              <option>Shuffling</option>
+            </select>
+            <select class="w-full bg-[#293038] p-2 rounded-md text-white">
+              <option>Attack Baseline</option>
+              <option>Attack with Countermeasure</option>
+            </select>
+            <button class="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-md text-sm font-semibold">Lancer l'analyse</button>
+          </div>
+        </div>
+
+        <!-- Résultats Comparés -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <div class="bg-[#1C1F24] p-4 rounded-xl">
+            <h3 class="text-lg font-semibold mb-2 text-white">Taux de Réussite (Avant / Après)</h3>
+            <div class="h-64 flex items-center justify-center text-gray-500 italic">
+              Success rate comparison bar chart placeholder
+            </div>
+          </div>
+
+          <div class="bg-[#1C1F24] p-4 rounded-xl">
+            <h3 class="text-lg font-semibold mb-2 text-white">Visualisation de l'Entropie</h3>
+            <div class="h-64 flex items-center justify-center text-gray-500 italic">
+              Entropy graph placeholder
+            </div>
+          </div>
+        </div>
+
+        <!-- Interprétation Expert -->
+        <div class="bg-[#1C1F24] p-4 rounded-xl">
+          <h3 class="text-lg font-semibold mb-2 text-white">Feedback d'interprétation</h3>
+          <div class="bg-black text-green-400 text-sm p-4 rounded-md h-40 overflow-auto">
+            > La contre-mesure de masquage a augmenté l'entropie moyenne de 30%...<br />
+            > Le taux de réussite de l'attaque a diminué de 25%...<br />
+            > Contre-mesure considérée comme efficace sur CPA.
+          </div>
+        </div>
+
+        <!-- Résumé et Export -->
+        <div class="flex justify-end">
+          <button class="bg-green-600 hover:bg-green-700 px-6 py-2 rounded-md text-sm font-semibold">Exporter le Rapport</button>
+        </div>
+      </main>
+    </div>
+  </body>

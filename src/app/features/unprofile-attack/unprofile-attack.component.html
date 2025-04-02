@@ -1,0 +1,76 @@
+
+<body class="bg-[#111418] text-white font-sans min-h-screen">
+    <div class="flex flex-col min-h-screen">
+      <!-- Header -->
+       <app-topbar></app-topbar>
+      <!-- Main -->
+      <main class="flex flex-col lg:flex-row p-6 gap-6">
+        <!-- Left Controls -->
+        <div class="w-full lg:w-1/3 flex flex-col gap-4">
+          <div class="bg-[#1C1F24] p-4 rounded-xl">
+            <h3 class="text-lg font-semibold mb-2 text-white">Attack Parameters</h3>
+            <label class="block text-sm mb-1">Attack Type</label>
+            <select class="w-full bg-[#293038] p-2 rounded-md text-white">
+              <option>CPA (Correlation Power Analysis)</option>
+              <option>DPA (Differential Power Analysis)</option>
+              +
+              <option>Timing Attack</option>
+            </select>
+
+            <label class="block text-sm mt-4 mb-1">Hypothesis Model</label>
+            <select class="w-full bg-[#293038] p-2 rounded-md text-white">
+              <option>Hamming Weight</option>
+              <option>Hamming Distance</option>
+              <option>AES S-Box Output</option>
+            </select>
+
+            <label class="block text-sm mt-4 mb-1">Upload Trace Dataset</label>
+            <input type="file" class="w-full bg-[#293038] p-2 rounded-md text-white" />
+
+            <button class="mt-4 w-full bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-md text-sm font-semibold">Run Attack</button>
+          </div>
+
+          <div class="bg-[#1C1F24] p-4 rounded-xl">
+            <h3 class="text-lg font-semibold mb-2 text-white">Export Results</h3>
+            <button class="w-full bg-green-600 hover:bg-green-700 px-4 py-2 rounded-md text-sm font-semibold">Download Report</button>
+          </div>
+        </div>
+
+        <!-- Right Display -->
+        <div class="flex-1 flex flex-col gap-4">
+          <div class="bg-[#1C1F24] rounded-xl p-4">
+            <h3 class="text-lg font-semibold mb-2 text-white">Correlation Peaks</h3>
+            <div class="h-64 flex items-center justify-center text-gray-500 italic">
+              Correlation graph placeholder (plot line)
+            </div>
+          </div>
+
+          <div class="bg-[#1C1F24] rounded-xl p-4">
+            <h3 class="text-lg font-semibold mb-2 text-white">Recovered Key Bytes</h3>
+            <table class="w-full text-sm text-left">
+              <thead class="text-gray-400">
+                <tr>
+                  <th class="py-2 px-4">Byte #</th>
+                  <th class="py-2 px-4">Guess</th>
+                  <th class="py-2 px-4">Confidence</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="border-t border-[#293038]">
+                  <td class="py-2 px-4">0</td>
+                  <td class="py-2 px-4">0x3F</td>
+                  <td class="py-2 px-4 text-green-400 font-medium">97%</td>
+                </tr>
+                <tr class="border-t border-[#293038]">
+                  <td class="py-2 px-4">1</td>
+                  <td class="py-2 px-4">0xA2</td>
+                  <td class="py-2 px-4 text-green-300 font-medium">89%</td>
+                </tr>
+                <!-- Add more rows as needed -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </main>
+    </div>
+  </body>

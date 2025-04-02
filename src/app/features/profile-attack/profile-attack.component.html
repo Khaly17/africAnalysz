@@ -1,0 +1,92 @@
+<body class="bg-[#111418] text-white font-sans min-h-screen">
+    <div class="flex flex-col min-h-screen">
+      <!-- Header -->
+      <app-topbar></app-topbar>
+
+      <!-- Main -->
+      <main class="flex flex-col lg:flex-row p-6 gap-6">
+        <!-- Left Column -->
+        <div class="w-full lg:w-1/3 flex flex-col gap-4">
+          <div class="bg-[#1C1F24] p-4 rounded-xl">
+            <h3 class="text-lg font-semibold mb-2 text-white">Dataset</h3>
+            <label class="block text-sm mb-1">Upload Train Set</label>
+            <input type="file" class="w-full bg-[#293038] p-2 rounded-md text-white mb-2" />
+            <label class="block text-sm mb-1">Upload Test Set</label>
+            <input type="file" class="w-full bg-[#293038] p-2 rounded-md text-white" />
+          </div>
+
+          <div class="bg-[#1C1F24] p-4 rounded-xl">
+            <h3 class="text-lg font-semibold mb-2 text-white">Model Configuration</h3>
+            <label class="block text-sm mb-1">Architecture</label>
+            <select class="w-full bg-[#293038] p-2 rounded-md text-white">
+              <option>MLP</option>
+              <option>CNN</option>
+              <option>Custom</option>
+            </select>
+
+            <label class="block text-sm mt-4 mb-1">Epochs</label>
+            <input type="number" value="20" class="w-full bg-[#293038] p-2 rounded-md text-white" />
+
+            <label class="block text-sm mt-4 mb-1">Batch Size</label>
+            <input type="number" value="64" class="w-full bg-[#293038] p-2 rounded-md text-white" />
+
+            <label class="block text-sm mt-4 mb-1">Optimizer</label>
+            <select class="w-full bg-[#293038] p-2 rounded-md text-white">
+              <option>Adam</option>
+              <option>SGD</option>
+              <option>RMSprop</option>
+            </select>
+
+            <button class="mt-4 w-full bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-md text-sm font-semibold">Start Training</button>
+          </div>
+        </div>
+
+        <!-- Right Column -->
+        <div class="flex-1 flex flex-col gap-4">
+          <div class="bg-[#1C1F24] rounded-xl p-4">
+            <h3 class="text-lg font-semibold mb-2 text-white">Training Metrics</h3>
+            <div class="h-64 flex items-center justify-center text-gray-500 italic">
+              Training loss/accuracy plot placeholder
+            </div>
+          </div>
+
+          <div class="bg-[#1C1F24] rounded-xl p-4">
+            <h3 class="text-lg font-semibold mb-2 text-white">Prediction Results</h3>
+            <table class="w-full text-sm text-left">
+              <thead class="text-gray-400">
+                <tr>
+                  <th class="py-2 px-4">Byte #</th>
+                  <th class="py-2 px-4">Top-1</th>
+                  <th class="py-2 px-4">Top-2</th>
+                  <th class="py-2 px-4">Top-3</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="border-t border-[#293038]">
+                  <td class="py-2 px-4">0</td>
+                  <td class="py-2 px-4 text-green-400">0x3F</td>
+                  <td class="py-2 px-4 text-yellow-400">0x4A</td>
+                  <td class="py-2 px-4 text-orange-400">0x12</td>
+                </tr>
+                <tr class="border-t border-[#293038]">
+                  <td class="py-2 px-4">1</td>
+                  <td class="py-2 px-4 text-green-400">0xA2</td>
+                  <td class="py-2 px-4 text-yellow-400">0xB3</td>
+                  <td class="py-2 px-4 text-orange-400">0x59</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="bg-[#1C1F24] rounded-xl p-4">
+            <h3 class="text-lg font-semibold mb-2 text-white">Model Performance Summary</h3>
+            <ul class="list-disc pl-6 text-sm text-gray-300">
+              <li>Validation Accuracy: <span class="text-green-400">92%</span></li>
+              <li>Loss: <span class="text-yellow-300">0.08</span></li>
+              <li>Inference Time: <span class="text-blue-400">5.2 ms/sample</span></li>
+            </ul>
+          </div>
+        </div>
+      </main>
+    </div>
+  </body>
