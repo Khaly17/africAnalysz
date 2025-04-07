@@ -1,136 +1,114 @@
+<div class="relative flex min-h-screen flex-col bg-[#111418] overflow-x-hidden" style='font-family: "Space Grotesk", "Noto Sans", sans-serif;'>
+  <div class="layout-container flex h-full grow flex-col">
+    <app-topbar></app-topbar>
+    
+    <div class="px-4 sm:px-6 md:px-10 lg:px-20 xl:px-40 flex flex-1 justify-center py-5">
+      <div class="layout-content-container flex flex-col w-full max-w-6xl">
 
-<div class="relative flex size-full min-h-screen flex-col bg-[#111418] dark group/design-root overflow-x-hidden" style='font-family: "Space Grotesk", "Noto Sans", sans-serif;'>
-    <div class="layout-container flex h-full grow flex-col">
-     <app-topbar></app-topbar>
-      <div class="px-40 flex flex-1 justify-center py-5">
-        <div class="layout-content-container flex flex-col max-w-[960px] flex-1">
-          <div class="flex flex-wrap justify-between gap-3 p-4">
-            <div class="flex min-w-72 flex-col gap-3">
-              <p class="text-white tracking-light text-[32px] font-bold leading-tight">Cybersecurity Dashboard</p>
-              <p class="text-[#9dabb8] text-sm font-normal leading-normal">Overview of recent attacks on embedded systems</p>
-            </div>
+        <!-- Header section -->
+        <div class="flex flex-wrap justify-between gap-4 p-4">
+          <div class="flex flex-col gap-2">
+            <p class="text-white text-2xl sm:text-[32px] font-bold leading-tight">Cybersecurity Dashboard</p>
+            <p class="text-[#9dabb8] text-sm">Overview of recent attacks on embedded systems</p>
           </div>
-          <div class="flex flex-wrap gap-4 p-4">
-            <div class="flex min-w-[158px] flex-1 flex-col gap-2 rounded-xl p-6 bg-[#293038]">
-              <p class="text-white text-base font-medium leading-normal">Total Attacks</p>
-              <p class="text-white tracking-light text-2xl font-bold leading-tight">2,500</p>
-            </div>
-            <div class="flex min-w-[158px] flex-1 flex-col gap-2 rounded-xl p-6 bg-[#293038]">
-              <p class="text-white text-base font-medium leading-normal">Successful Key Recoveries</p>
-              <p class="text-white tracking-light text-2xl font-bold leading-tight">1,200</p>
-            </div>
-            <div class="flex min-w-[158px] flex-1 flex-col gap-2 rounded-xl p-6 bg-[#293038]">
-              <p class="text-white text-base font-medium leading-normal">Attack Types</p>
-              <p class="text-white tracking-light text-2xl font-bold leading-tight">CPA, DPA, Template Attack</p>
-            </div>
-            <div class="flex min-w-[158px] flex-1 flex-col gap-2 rounded-xl p-6 bg-[#293038]">
-              <p class="text-white text-base font-medium leading-normal">Recent Experiments</p>
-              <p class="text-white tracking-light text-2xl font-bold leading-tight">3,000</p>
-            </div>
+        </div>
+
+        <!-- Stats Cards -->
+        <div class="flex flex-wrap gap-4 p-4">
+          <div class="flex min-w-[140px] flex-1 flex-col gap-2 rounded-xl p-6 bg-[#293038]">
+            <p class="text-white text-base font-medium">Total Attacks</p>
+            <p class="text-white text-2xl font-bold">2,500</p>
           </div>
-          <div class="flex flex-wrap gap-4 px-4 py-6">
-            <div class="flex min-w-72 flex-1 flex-col gap-2 rounded-xl border border-[#3c4753] p-6">
-              <p class="text-white text-base font-medium leading-normal">Attack Success Rate Over Time</p>
-              <p class="text-white tracking-light text-[32px] font-bold leading-tight truncate">75%</p>
-              <div class="flex min-h-[180px] flex-1 flex-col gap-8 py-4">
+          <div class="flex min-w-[140px] flex-1 flex-col gap-2 rounded-xl p-6 bg-[#293038]">
+            <p class="text-white text-base font-medium">Successful Key Recoveries</p>
+            <p class="text-white text-2xl font-bold">1,200</p>
+          </div>
+          <div class="flex min-w-[140px] flex-1 flex-col gap-2 rounded-xl p-6 bg-[#293038]">
+            <p class="text-white text-base font-medium">Attack Types</p>
+            <p class="text-white text-2xl font-bold">CPA, DPA, Template</p>
+          </div>
+          <div class="flex min-w-[140px] flex-1 flex-col gap-2 rounded-xl p-6 bg-[#293038]">
+            <p class="text-white text-base font-medium">Recent Experiments</p>
+            <p class="text-white text-2xl font-bold">3,000</p>
+          </div>
+        </div>
+
+        <!-- Attack Success Rate Chart -->
+        <div class="flex flex-wrap gap-4 px-4 py-6">
+          
+
+          <div class="flex flex-col gap-2 rounded-xl border border-[#3c4753] p-6 w-full">
+            <p class="text-white text-base font-medium">Attack Success Rate Over Time</p>
+            <p class="text-white text-[28px] sm:text-[32px] font-bold truncate">75%</p>
+            <div class="flex flex-col gap-8 py-4 min-h-[180px] w-full overflow-x-auto">
+              <div class="w-full overflow-hidden">
+                <!-- SVG graphique -->
                 <svg width="100%" height="148" viewBox="-3 0 478 150" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
                   <path
                     d="M0 109C18.1538 109 18.1538 21 36.3077 21C54.4615 21 54.4615 41 72.6154 41C90.7692 41 90.7692 93 108.923 93C127.077 93 127.077 33 145.231 33C163.385 33 163.385 101 181.538 101C199.692 101 199.692 61 217.846 61C236 61 236 45 254.154 45C272.308 45 272.308 121 290.462 121C308.615 121 308.615 149 326.769 149C344.923 149 344.923 1 363.077 1C381.231 1 381.231 81 399.385 81C417.538 81 417.538 129 435.692 129C453.846 129 453.846 25 472 25V149H326.769H0V109Z"
-                    fill="url(#paint0_linear_1131_5935)"
-                  ></path>
+                    fill="url(#paint0_linear)"
+                  />
                   <path
                     d="M0 109C18.1538 109 18.1538 21 36.3077 21C54.4615 21 54.4615 41 72.6154 41C90.7692 41 90.7692 93 108.923 93C127.077 93 127.077 33 145.231 33C163.385 33 163.385 101 181.538 101C199.692 101 199.692 61 217.846 61C236 61 236 45 254.154 45C272.308 45 272.308 121 290.462 121C308.615 121 308.615 149 326.769 149C344.923 149 344.923 1 363.077 1C381.231 1 381.231 81 399.385 81C417.538 81 417.538 129 435.692 129C453.846 129 453.846 25 472 25"
                     stroke="#9dabb8"
                     stroke-width="3"
                     stroke-linecap="round"
-                  ></path>
+                  />
                   <defs>
-                    <linearGradient id="paint0_linear_1131_5935" x1="236" y1="1" x2="236" y2="149" gradientUnits="userSpaceOnUse">
-                      <stop stop-color="#293038"></stop>
-                      <stop offset="1" stop-color="#293038" stop-opacity="0"></stop>
+                    <linearGradient id="paint0_linear" x1="236" y1="1" x2="236" y2="149" gradientUnits="userSpaceOnUse">
+                      <stop stop-color="#293038" />
+                      <stop offset="1" stop-color="#293038" stop-opacity="0" />
                     </linearGradient>
                   </defs>
                 </svg>
-                <div class="flex justify-around">
-                  <p class="text-[#9dabb8] text-[13px] font-bold leading-normal tracking-[0.015em]">Jan</p>
-                  <p class="text-[#9dabb8] text-[13px] font-bold leading-normal tracking-[0.015em]">Feb</p>
-                  <p class="text-[#9dabb8] text-[13px] font-bold leading-normal tracking-[0.015em]">Mar</p>
-                  <p class="text-[#9dabb8] text-[13px] font-bold leading-normal tracking-[0.015em]">Apr</p>
-                  <p class="text-[#9dabb8] text-[13px] font-bold leading-normal tracking-[0.015em]">May</p>
-                  <p class="text-[#9dabb8] text-[13px] font-bold leading-normal tracking-[0.015em]">Jun</p>
-                  <p class="text-[#9dabb8] text-[13px] font-bold leading-normal tracking-[0.015em]">Jul</p>
-                </div>
+              </div>
+              <div class="flex justify-around text-xs sm:text-sm">
+                <p class="text-[#9dabb8] font-bold">Jan</p>
+                <p class="text-[#9dabb8] font-bold">Feb</p>
+                <p class="text-[#9dabb8] font-bold">Mar</p>
+                <p class="text-[#9dabb8] font-bold">Apr</p>
+                <p class="text-[#9dabb8] font-bold">May</p>
+                <p class="text-[#9dabb8] font-bold">Jun</p>
+                <p class="text-[#9dabb8] font-bold">Jul</p>
               </div>
             </div>
           </div>
-          <div class="flex flex-wrap gap-4 px-4 py-6">
-            <div class="flex min-w-72 flex-1 flex-col gap-2 rounded-xl border border-[#3c4753] p-6">
-              <p class="text-white text-base font-medium leading-normal">Profiled vs Unprofiled Attacks</p>
-              <p class="text-white tracking-light text-[32px] font-bold leading-tight truncate">60% Profiled, 40% Unprofiled</p>
-              <div class="grid min-h-[180px] grid-flow-col gap-6 grid-rows-[1fr_auto] items-end justify-items-center px-3">
-                <div class="border-[#9dabb8] bg-[#293038] border-t-2 w-full" style="height: 70%;"></div>
-                <p class="text-[#9dabb8] text-[13px] font-bold leading-normal tracking-[0.015em]">CPA</p>
-                <div class="border-[#9dabb8] bg-[#293038] border-t-2 w-full" style="height: 90%;"></div>
-                <p class="text-[#9dabb8] text-[13px] font-bold leading-normal tracking-[0.015em]">DPA</p>
-                <div class="border-[#9dabb8] bg-[#293038] border-t-2 w-full" style="height: 20%;"></div>
-                <p class="text-[#9dabb8] text-[13px] font-bold leading-normal tracking-[0.015em]">Template Attack</p>
+
+        </div>
+
+        <!-- Profiled vs Unprofiled Attacks -->
+        <div class="flex flex-wrap gap-4 px-4 py-6">
+          <div class="flex flex-col w-full gap-2 rounded-xl border border-[#3c4753] p-6">
+            <p class="text-white text-base font-medium">Profiled vs Unprofiled Attacks</p>
+            <p class="text-white text-[28px] sm:text-[32px] font-bold truncate">60% Profiled, 40% Unprofiled</p>
+            <div class="grid grid-cols-3 gap-4 min-h-[180px] items-end px-3 text-center">
+              <div class="flex flex-col justify-end h-full">
+                <div class="h-[70%] bg-[#293038] border-t-2 border-[#9dabb8]"></div>
+                <p class="text-[#9dabb8] text-xs font-bold">CPA</p>
+              </div>
+              <div class="flex flex-col justify-end h-full">
+                <div class="h-[90%] bg-[#293038] border-t-2 border-[#9dabb8]"></div>
+                <p class="text-[#9dabb8] text-xs font-bold">DPA</p>
+              </div>
+              <div class="flex flex-col justify-end h-full">
+                <div class="h-[20%] bg-[#293038] border-t-2 border-[#9dabb8]"></div>
+                <p class="text-[#9dabb8] text-xs font-bold">Template</p>
               </div>
             </div>
-          </div>
-          <h3 class="text-white text-lg font-bold leading-tight tracking-[-0.015em] px-4 pb-2 pt-4">Recent Experiments</h3>
-          <div class="grid grid-cols-[40px_1fr] gap-x-2 px-4">
-            <div class="flex flex-col items-center gap-1 pt-5">
-              <div class="size-2 rounded-full bg-white"></div>
-              <div class="w-[1.5px] bg-[#3c4753] h-4 grow"></div>
-            </div>
-            <div class="flex flex-1 flex-col py-3">
-              <p class="text-white text-base font-medium leading-normal">Experiment 1</p>
-              <p class="text-[#9dabb8] text-base font-normal leading-normal">Sep 12, 2023</p>
-            </div>
-            <div class="flex flex-col items-center gap-1">
-              <div class="w-[1.5px] bg-[#3c4753] h-4"></div>
-              <div class="size-2 rounded-full bg-white"></div>
-              <div class="w-[1.5px] bg-[#3c4753] h-4 grow"></div>
-            </div>
-            <div class="flex flex-1 flex-col py-3">
-              <p class="text-white text-base font-medium leading-normal">Experiment 2</p>
-              <p class="text-[#9dabb8] text-base font-normal leading-normal">Aug 25, 2023</p>
-            </div>
-            <div class="flex flex-col items-center gap-1">
-              <div class="w-[1.5px] bg-[#3c4753] h-4"></div>
-              <div class="size-2 rounded-full bg-white"></div>
-              <div class="w-[1.5px] bg-[#3c4753] h-4 grow"></div>
-            </div>
-            <div class="flex flex-1 flex-col py-3">
-              <p class="text-white text-base font-medium leading-normal">Experiment 3</p>
-              <p class="text-[#9dabb8] text-base font-normal leading-normal">Aug 15, 2023</p>
-            </div>
-            <div class="flex flex-col items-center gap-1">
-              <div class="w-[1.5px] bg-[#3c4753] h-4"></div>
-              <div class="size-2 rounded-full bg-white"></div>
-              <div class="w-[1.5px] bg-[#3c4753] h-4 grow"></div>
-            </div>
-            <div class="flex flex-1 flex-col py-3">
-              <p class="text-white text-base font-medium leading-normal">Experiment 4</p>
-              <p class="text-[#9dabb8] text-base font-normal leading-normal">Jul 29, 2023</p>
-            </div>
-            <div class="flex flex-col items-center gap-1 pb-3">
-              <div class="w-[1.5px] bg-[#3c4753] h-4"></div>
-              <div class="size-2 rounded-full bg-white"></div>
-            </div>
-            <div class="flex flex-1 flex-col py-3">
-              <p class="text-white text-base font-medium leading-normal">Experiment 5</p>
-              <p class="text-[#9dabb8] text-base font-normal leading-normal">Jul 12, 2023</p>
-            </div>
-          </div>
-          <div class="flex px-4 py-3 justify-end">
-            <button
-              class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-4 bg-[#293038] text-white text-sm font-bold leading-normal tracking-[0.015em]"
-            >
-              <span class="truncate">Switch to Dark Mode</span>
-            </button>
           </div>
         </div>
+
+        <!-- Recent Experiments Timeline -->
+        <app-recent-experiments></app-recent-experiments>
+
+        <!-- Dark mode button -->
+        <div class="flex px-4 py-3 justify-end">
+          <button class="min-w-[84px] max-w-[480px] rounded-full h-10 px-4 bg-[#293038] text-white text-sm font-bold">
+            <span class="truncate">Switch to Dark Mode</span>
+          </button>
+        </div>
+
       </div>
     </div>
   </div>
+</div>
