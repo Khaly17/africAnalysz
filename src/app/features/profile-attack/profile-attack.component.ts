@@ -10,6 +10,7 @@ import { CommonModule } from '@angular/common';
 })
 export class ProfileAttackComponent {
   isTraining = false;
+  isCapturing = false;
   trainingFinished = false;
 
   fullResults = [
@@ -29,6 +30,7 @@ export class ProfileAttackComponent {
   startTraining() {
     this.isTraining = true;
     this.trainingFinished = false;
+    this.isCapturing = true;
     this.topResults = [];
 
     // Simule le temps d’entraînement (affiche le graphique)
@@ -43,6 +45,7 @@ export class ProfileAttackComponent {
         } else {
           clearInterval(interval);
           this.trainingFinished = true;
+          
         }
       }, 500); // chaque ligne apparaît toutes les 500ms
     }, 3000); // simulation d'entraînement de 3 secondes
