@@ -30,11 +30,31 @@
 
           <div class="bg-[#1C1F24] p-4 rounded-xl">
             <h3 class="text-lg font-semibold mb-2 text-white">Controls</h3>
+            <!-- Controls -->
             <div class="flex gap-2">
-              <button class="bg-green-600 hover:bg-green-700 px-4 py-2 rounded-md text-sm font-semibold">Start</button>
-              <button class="bg-yellow-600 hover:bg-yellow-700 px-4 py-2 rounded-md text-sm font-semibold">Stop</button>
-              <button class="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-md text-sm font-semibold">Save</button>
+              <button 
+                class="bg-green-600 hover:bg-green-700 px-4 py-2 rounded-md text-sm font-semibold"
+                (click)="startCapture()" [disabled]="isCapturing" *ngIf="!isCapturing" >
+                Start
+              </button>
+              <button 
+                class="bg-green-600 hover:bg-green-700 px-4 py-2 rounded-md text-sm font-semibold"
+                (click)="startCapture()" [disabled]="isCapturing" *ngIf="isCapturing" >
+                Training in progress...
+              </button>
+    
+              <button 
+                class="bg-yellow-600 hover:bg-yellow-700 px-4 py-2 rounded-md text-sm font-semibold"
+                (click)="stopCapture()" [disabled]="!isCapturing">
+                Stop
+              </button>
+              <button 
+                class="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-md text-sm font-semibold"
+                (click)="saveCapture()" [disabled]="isCapturing">
+                Save
+              </button>
             </div>
+
           </div>
         </div>
 
@@ -42,19 +62,24 @@
         <div class="flex-1 flex flex-col gap-4">
           <div class="bg-[#1C1F24] rounded-xl p-4 h-64">
             <h3 class="text-lg font-semibold mb-2 text-white">Live Waveform Preview</h3>
-            <div class="flex h-full items-center justify-center text-gray-500 italic">
-              Oscilloscope waveform placeholder (real-time graph)
+            <div class="flex h-full items-center justify-center">
+              <ng-container *ngIf="!showWaveform">
+                <p class="text-gray-500 italic">Oscilloscope waveform placeholder (real-time graph)</p>
+              </ng-container>
+              <ng-container *ngIf="showWaveform">
+                <img src="assets/images/waveform.png" alt="Captured waveform" class="max-h-56 object-contain" />
+              </ng-container>
             </div>
           </div>
+          
 
           <div class="bg-[#1C1F24] rounded-xl p-4 h-48">
             <h3 class="text-lg font-semibold mb-2 text-white">Console / Log Output</h3>
             <div class="bg-black text-green-400 text-sm p-2 h-full overflow-auto rounded-md">
-              > System initialized...<br />
-              > Waiting for trigger...<br />
-              > Trace captured successfully...<br />
+              <div *ngFor="let log of logs">{{ log }}</div>
             </div>
           </div>
+          
         </div>
       </main>
     </div>
