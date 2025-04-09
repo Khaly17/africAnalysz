@@ -33,7 +33,6 @@ export class ProfileAttackComponent {
 
     // Simule le temps d’entraînement (affiche le graphique)
     setTimeout(() => {
-      this.trainingFinished = true;
       this.isTraining = false;
 
       let i = 0;
@@ -43,6 +42,7 @@ export class ProfileAttackComponent {
           i++;
         } else {
           clearInterval(interval);
+          this.trainingFinished = true;
         }
       }, 500); // chaque ligne apparaît toutes les 500ms
     }, 3000); // simulation d'entraînement de 3 secondes
