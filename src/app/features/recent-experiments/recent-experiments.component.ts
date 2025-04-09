@@ -27,11 +27,11 @@ import { CommonModule } from '@angular/common';
 })
 export class RecentExperimentsComponent {
   experiments = [
-    { name: 'Experiment 1', date: 'Sep 12, 2023' },
-    { name: 'Experiment 2', date: 'Aug 25, 2023' },
-    { name: 'Experiment 3', date: 'Aug 15, 2023' },
-    { name: 'Experiment 4', date: 'Jul 29, 2023' },
-    { name: 'Experiment 5', date: 'Jul 12, 2023' }
+    { name: 'Experiment 1', date: 'Sep 12, 2024' },
+    { name: 'Experiment 2', date: 'Aug 25, 2024' },
+    { name: 'Experiment 3', date: 'Aug 15, 2024' },
+    { name: 'Experiment 4', date: 'Jul 29, 2024' },
+    { name: 'Experiment 5', date: 'Jul 12, 2024' }
   ];
 
   first(exp: any) {
